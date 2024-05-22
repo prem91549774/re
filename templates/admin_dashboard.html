@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Homeverse</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="/static/styless.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <ul class="header-top-list">
+
+          <li>
+            <a href="mailto:info@homefind.com" class="header-top-link">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <span>info@homefind.com</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="header-top-link">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>15/A, Nest Tower, NYC</address>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <ul class="header-top-social-list">
+
+            <li>
+              <a href="#" class="header-top-social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="header-top-social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="header-top-social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="header-top-social-link">
+                <ion-icon name="logo-pinterest"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <a href="#" class="logo">
+          <img src="/static/logo.jpg" alt="Homefind logo" width="290px">
+        </a>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="logo.png" alt="Homefind logo">
+            </a>
+
+            <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <div class="navbar-bottom">
+            <ul class="navbar-list">
+
+              <!-- <li>
+                <a href="#dashboard" class="navbar-link" data-nav-link>Dashboard</a>
+              </li> -->
+
+              <li>
+                <a href="#users" class="navbar-link" data-nav-link>Users</a>
+              </li>
+
+              <li>
+                <a href="#properties" class="navbar-link" data-nav-link>Properties</a>
+              </li>
+
+              <!-- <li>
+                <a href="#enquiries" class="navbar-link" data-nav-link>Enquiries</a>
+              </li> -->
+
+              <!-- <li>
+                <a href="#settings" class="navbar-link" data-nav-link>Settings</a>
+              </li> -->
+
+            </ul>
+
+          </div>
+
+        </nav>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+
+    <!-- 
+      - #DASHBOARD
+    -->
+
+    <section class="dashboard" id="dashboard">
+      <div class="container">
+
+        <h2 class="h2 section-title">Dashboard</h2>
+
+        <div class="dashboard-card">
+          <h3 class="h3 card-title">Total Users</h3>
+          <p class="card-text">{{ total_users }}</p>
+        </div>
+
+        <div class="dashboard-card">
+          <h3 class="h3 card-title">Total Properties</h3>
+          <p class="card-text">{{ total_properties }}</p>

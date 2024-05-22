@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Dashboard</title>
+    <link rel="stylesheet" href="/static/dash.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <!-- Header content here -->
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <!-- Navbar content here -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="property">
+            <div class="container">
+                <h2 class="section-title">Property Listings</h2>
+                <ul class="property-list">
+                    <!-- Property items will be dynamically generated here -->
+                    <!-- Example property item -->
+                    
+                    {% for i in count %}
+                    {% if i[20] == 'listed' %}
+                        <li class="property-card">
+                            <div class="card-banner">
+                                <a href="#">
+                                    <img src="/static/{{i[12]}}" alt="Property Image">
+                                </a>
+                                <div class="card-badge {% if i[21] == 'For Rent' %}green{% elif i[21] == 'For Sale' %}blue{% endif %}">{{ i[21] }}</div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="card-title">
+                                    <a href="#">{{i[1]}}</a>
+                                </div>
+                                <div class="card-text">
+                                    {{i[2]}}
+                                </div>
+                                <div class="card-price">
+                                    Price: <strong>{{i[3]}}</strong>
+                                </div>
+                                <div class="card-list">
+                                    <div class="card-item">
+                                        <strong>Bedrooms:</strong> <span>{{i[4]}}</span>
+                                    </div>
+                                    <div class="card-item">
+                                        <strong>Bathrooms:</strong> <span>{{i[5]}}</span>
+                                    </div>
+                                    <div class="card-item">
+                                        <ion-icon name="square-outline"></ion-icon> <span>{{i[13]}}</span>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-author">
+                                        <div class="author-avatar">
+                                            <!-- Author avatar goes here -->
+                                        </div>
+                                        <div class="author-info">
+                                            <div class="author-name">
+                                                <a href="#">{{i[11]}}</a>
+                                            </div>
+                                            <div class="author-title">Real Estate Agent</div>
+                                        </div>
+                                    </div>
+                                    {% if i[8] %}
+                                    <a href="{{ url_for('uchat', agentId=i[8], propertyId=i[0]) }}"><button class="btn">Make An Enquiry</button></a>
+                                    {% else %}
+                                    <a href="{{ url_for('uchat', agentId=i[9], propertyId=i[0]) }}"><button class="btn">Make An Enquiry</button></a>
+
+                                    {% endif %}
+                                    {% if i[10] != user_id %}
+                                    <a href="{{url_for('cart', id1=i[0], name=i[1], dis=i[2], property_type=i[7], price=i[3], img=i[12], location=i[6], area=i[13],status=i[20] )}}"><button class="btn">Add to cart</button></a>
+                                    {% endif %}
+                                    <div class="card-footer-actions">
+                                        <button class="card-actions-btn">
+                                            <ion-icon name="heart-outline"></ion-icon>
+                                        </button>
+                                        <button class="card-actions-btn">
+                                            <ion-icon name="share-outline"></ion-icon>
+                                        </button>
+                                        <button class="card-actions-btn">
+                                            <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+
+                    <!-- End of example property item -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer content here -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

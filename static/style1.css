@@ -1,0 +1,148 @@
+/* Reset CSS */
+body, h1, h2, h3, p, ul, li, form, input, select, button {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background: #cde611;
+  color: #fff;
+  padding: 20px 0;
+}
+
+header h1 {
+  float: left;
+}
+
+nav ul {
+  float: right;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+section {
+  padding: 40px 0;
+}
+
+#search h2, #listings h2 {
+  margin-bottom: 20px;
+}
+
+#search-form input, #search-form select {
+  margin-right: 10px;
+}
+
+#search-form input[type="submit"] {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.listing {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.listing img {
+  width: 300px;
+  margin-right: 20px;
+}
+
+.listing .details {
+  flex: 1;
+}
+
+.listing h3 {
+  margin-bottom: 10px;
+}
+
+.listing ul {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.listing ul li {
+  margin-bottom: 5px;
+}
+
+.listing .button {
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+body {
+  background-image: url('/static/images/background.avif');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Additional styles for the add property page */
+#add-property {
+  margin-top: 40px;
+}
+
+#add-property form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#add-property .form-group {
+  margin-bottom: 20px;
+}
+
+#add-property label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#add-property input[type="text"],
+#add-property input[type="number"],
+#add-property textarea,
+#add-property select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#add-property textarea {
+  height: 100px;
+}
+
+#add-property input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#add-property input[type="submit"] {
+  background: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+#add-property input[type="submit"]:hover {
+  background: #45a049;
+}

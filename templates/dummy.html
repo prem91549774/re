@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navbar with Login Dropdown</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header-bottom">
+    <div class="container">
+      <a href="#" class="logo">
+        <img src="logo.png" alt="Homefind logo" width="290px">
+      </a>
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="logo.png" alt="Homefind logo">
+          </a>
+          <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+        <div class="navbar-bottom">
+          <ul class="navbar-list">
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            </li>
+            <li>
+              <a href="#about" class="navbar-link" data-nav-link>About</a>
+            </li>
+            <li>
+              <a href="#service" class="navbar-link" data-nav-link>Service</a>
+            </li>
+            <li>
+              <a href="#property" class="navbar-link" data-nav-link>Property</a>
+            </li>
+            <li>
+              <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+            </li>
+            <li>
+              <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="navbar-link" onclick="toggleLogin()">Login</a>
+              <div id="login-dropdown" class="dropdown-content">
+                <a href="#" id="login-link">Login</a>
+                <a href="#" id="signup-link">Sign Up</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <script>
+    function toggleLogin() {
+      var dropdown = document.getElementById("login-dropdown");
+      dropdown.classList.toggle("show");
+    }
+  </script>
+</body>
+</html>

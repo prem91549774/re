@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/static/dash.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <!-- Header content here -->
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <!-- Navbar content here -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="property">
+            <div class="container">
+                <h2 class="section-title">Search Results</h2>
+                <ul class="property-list">
+                    {% for property in results %}
+                    <li class="property-card">
+                        <div class="card-banner">
+                            <a href="#">
+                                <img src="/static/{{ property.image_url }}" alt="Property Image">
+                            </a>
+                            <div class="card-badge {% if property.status == 'For Sale' %}blue{% elif property.status == 'For Rent' %}green{% endif %}">{{ property.status }}</div>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">
+                                <a href="#">{{ property.title }}</a>
+                            </div>
+                            <div class="card-text">
+                                {{ property.description }}
+                            </div>
+                            <div class="card-price">
+                                Price: <strong>{{ property.price }}</strong>
+                            </div>
+                            <div class="card-list">
+                                <div class="card-item">
+                                    <strong>Bedrooms:</strong> <span>{{ property.bedrooms }}</span>
+                                </div>
+                                <div class="card-item">
+                                    <strong>Bathrooms:</strong> <span>{{ property.bathrooms }}</span>
+                                </div>
+                                <div class="card-item">
+                                    <strong>Size:</strong> <span>{{ property.size }}</span>
+                                </div>
+                                <!-- Add more property details as needed -->
+                            </div>
+                            <!-- Author info and actions -->
+                            <div class="card-footer">
+                                <div class="card-author">
+                                    <div class="author-info">
+                                        <div class="author-name">
+                                            <a href="#">{{ property.added_by_user }}</a>
+                                        </div>
+                                        <div class="author-title">Real Estate Agent</div>
+                                    </div>
+                                </div>
+                                <!-- Add more buttons or actions as needed -->
+                            </div>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <!-- Footer content here -->
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

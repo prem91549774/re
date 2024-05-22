@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose User or Agent</title>
+    <link rel="stylesheet" href="/static/choose.css">
+</head>
+<body>
+    
+    <div class="container">
+        <h1 class="head">Choose your registeration process</h1>
+        <div class="form-box">
+            <h1>User</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <a href="{{url_for('login')}}"><img src="/static/user.jpg", width="250px"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="form-box1">
+            <h1>Agent</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field">
+                        <a href="{{url_for('agent_login')}}"><img src="/static/agent.png", width="250px"></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

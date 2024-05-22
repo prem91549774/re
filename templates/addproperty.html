@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Property - HomeFind</title>
+  <link rel="stylesheet" type="text/css" href="/static/style1.css"> <!-- Link to your CSS file -->
+  <style>
+    /* Your custom CSS styles */
+  </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+  <header>
+    <div class="container">
+      <h1><a href="{{url_for('welcome')}}">HomeFind</a></h1>
+    </div>
+  </header>
+
+  <section id="add-property">
+    <div class="container">
+      <h2>Add Property</h2>
+      <form method="POST" enctype="multipart/form-data"> <!-- Added enctype for file upload -->
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required>
+        </div>
+        <div class="form-group">
+          <label for="bedrooms">Bedrooms:</label>
+          <input type="number" id="bedrooms" name="bedrooms" required>
+        </div>
+        <div class="form-group">
+          <label for="bathrooms">Bathrooms:</label>
+          <input type="number" id="bathrooms" name="bathrooms" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+        <div class="form-group">
+          <label for="property_type">Property Type:</label>
+          <select id="property_type" name="property_type" required>
+            <option value="house">House</option>
+            <option value="apartment">Apartment</option>
+            <option value="condo">Condo</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="size">Size:</label>
+          <input type="text" id="size" name="size" required>
+        </div>
+        <div class="form-group">
+          <label for="direction_faced">Direction Faced:</label>
+          <input type="text" id="direction_faced" name="direction_faced" required>
+        </div>
+        <div class="form-group">
+          <label for="year_built">Year Built:</label>
+          <input type="number" id="year_built" name="year_built">
+        </div>
+        <div class="form-group">
+          <label for="amenities">Amenities:</label>
+          <textarea id="amenities" name="amenities" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="floor_plan">Floor Plan:</label>
+          <input type="text" id="floor_plan" name="floor_plan">
+        </div>
+        <div class="form-group">
+          <label for="parking">Parking:</label>
+          <select id="parking" name="parking" >
+            <option value="Parallel Parking">Parallel Parking</option>
+            <option value="Perpendicular Parking">Perpendicular Parking</option>
+            <option value="Angle Parking">Angle Parking</option>
+            <option value="Diagonal Parking">Diagonal Parking</option>
+            <option value="Parking Garage">Parking Garage</option>
+            <option value="Parking Lot">Parking Lot</option>
+            <option value="Valet Parking">Valet Parking</option>
+            <option value="Handicap Parking">Handicap Parking</option>
+            <option value="Tandem Parking">Tandem Parking</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="property_condition">Property Condition:</label>
+          <input type="text" id="property_condition" name="property_condition">
+        </div>
+        <div class="form-group">
+          <label for="view">View:</label>
+          <input type="text" id="view" name="view">
+        </div>
+        <div class="form-group">
+          <label for="image">Image:</label>
+          <input type="file" id="image" name="image" accept="image/*" required>
+        </div>
+        <!-- Add hidden input fields for agent_id, owner_id, and added_by_id -->
+        {% if session.get('user') %}
+        <input type="hidden" name="added_by_id" value="{{ session.get('user')}}">
+        {% endif %}
+        {% if session.get('agent') %}
+        <input type="hidden" name="added_by_id" value="{{ session.get('agent')}}">
+        {% endif %}
+        <div class="form-group">
+          <label for="view">Owner_id:</label>
+          <input type="email" id="view" name="owner_id" placeholder="Give user registered Email">
+        </div>
+        <select name="purpose">
+          <option value="For sales">For sale</option>
+          <option value="For Rent">For Rent</option>
+          
+        </select>
+        <div class="form-group">
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 HomeFind</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/main.js"></script> <!-- Link to your JS file -->
+</body>
+</html>

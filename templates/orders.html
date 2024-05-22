@@ -1,0 +1,46 @@
+
+
+<!DOCTYPE html>
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2>details</h2>
+
+<table style="width:100%">
+    <div class="table-container">
+        <table class="orders-table">
+    <thead>
+  <tr>
+    <th>Order ID</th>
+    <th>Sale Date</th>
+    <th>Property Name</th>
+    <th>Location</th>
+    <th>Price</th>
+    <th>Invoice</th>
+  </tr>
+  </thead>
+<tbody>
+  {% for order in orders %}
+  <tr>
+    <td>{{ order[0] }}</td>
+          <td>{{ order[2] }}</td>
+          <td>{{ order[3] }}</td>
+          <td>{{ order[4] }}</td>
+          <td>{{ order[1] }}</td>
+          <td><a href="{{url_for('invoice',ordid=order[0])}}">Get Invoice</a></td>
+    {% endfor %}
+  </tr>
+  </tbody>
+  </tr>
+</table>
+</div>
+<p>purchase details of your order</p>
+
+</body>
+</html>
+
